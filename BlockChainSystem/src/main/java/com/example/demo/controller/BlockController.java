@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.controller;
 
-import lombok.RequiredArgsConstructor;
+import com.example.demo.provider.BlockProvider;
+import com.example.demo.entity.Block;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

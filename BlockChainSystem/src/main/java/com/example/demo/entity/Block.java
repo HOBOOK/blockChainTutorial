@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.entity;
 
+import com.example.demo.common.StringUtil;
 import lombok.Getter;
 
 import java.util.Date;
@@ -32,6 +33,7 @@ public class Block {
 
     private int targetDepth = 5;
 
+    @Getter
     private long timeStamp;
 
     public Block(String data, String prevHash){

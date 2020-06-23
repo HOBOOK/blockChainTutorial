@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.repository;
 
+import com.example.demo.entity.Block;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

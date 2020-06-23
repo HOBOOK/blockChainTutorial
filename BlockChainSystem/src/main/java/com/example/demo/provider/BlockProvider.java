@@ -1,6 +1,8 @@
-package com.example.demo;
+package com.example.demo.provider;
 
-import lombok.RequiredArgsConstructor;
+import com.example.demo.entity.Block;
+import com.example.demo.entity.Wallet;
+import com.example.demo.repository.BlockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
