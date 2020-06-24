@@ -18,11 +18,6 @@ public class WalletController {
         return walletProvider.findAllWallets();
     }
 
-    @GetMapping(value = "/test")
-    public String getTestResult(){
-        return walletProvider.test();
-    }
-
     @PostMapping
     public void mineBlock(){
         walletProvider.addWallet();
