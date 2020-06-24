@@ -6,6 +6,39 @@ import java.security.PublicKey;
 
 public class TransactionOutput {
     private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public PublicKey getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(PublicKey recipient) {
+        this.recipient = recipient;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
+    }
+
+    public String getParentTransactionId() {
+        return parentTransactionId;
+    }
+
+    public void setParentTransactionId(String parentTransactionId) {
+        this.parentTransactionId = parentTransactionId;
+    }
+
     private PublicKey recipient;
     private float value;
     private String parentTransactionId;

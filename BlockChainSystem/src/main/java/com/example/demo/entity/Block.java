@@ -1,8 +1,10 @@
 package com.example.demo.entity;
 
 import com.example.demo.common.StringUtil;
+import com.example.demo.entity.transaction.Transaction;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Block {
@@ -24,6 +26,10 @@ public class Block {
     @Getter
     private String prevHash;
 
+    private String merkleRoot;
+
+    private ArrayList<Transaction> transactions = new ArrayList<>();
+
     @Getter
     private String data;
 
@@ -44,6 +50,7 @@ public class Block {
     }
 
     private void mineNewBlock(){
+        merkleRoot = StringUtil.getMerkleRoot(transactions);
         while(hash == null || !hash.substring(0,targetDepth).equals(target)){
             nonce++;
             hash = makeHashBlock();

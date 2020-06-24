@@ -8,39 +8,57 @@ import java.util.ArrayList;
 
 public class Transaction {
 
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
     private String transactionId;
     private PublicKey sender;
+
+    public PublicKey getSender() {
+        return sender;
+    }
+
+    public PublicKey getRecipient() {
+        return recipient;
+    }
+
+    public float getValue() {
+        return value;
+    }
+
     private PublicKey recipient;
     private float value;
+
+    public void setSignature(byte[] signature) {
+        this.signature = signature;
+    }
+
+    public byte[] getSignature() {
+        return signature;
+    }
+
     private byte[] signature;
+
+    public ArrayList<TransactionInput> getInputs() {
+        return inputs;
+    }
+
+    public ArrayList<TransactionOutput> getOutputs() {
+        return outputs;
+    }
 
     private ArrayList<TransactionInput> inputs = new ArrayList<TransactionInput>();
     private ArrayList<TransactionOutput> outputs = new ArrayList<TransactionOutput>();
-
-    private static int sequence = 0;
 
     public Transaction(PublicKey from, PublicKey to, float value, ArrayList<TransactionInput> inputs){
         this.sender = from;
         this.recipient = to;
         this.value =value;
         this.inputs = inputs;
-    }
-
-    private String makeHashBlock(){
-        sequence++;
-        return StringUtil.getSha256(
-                StringUtil.getStringFromKey(sender)+
-                StringUtil.getStringFromKey(recipient) +
-                Float.toString(value) + sender);
-    }
-
-    public void generateSignature(PrivateKey privateKey){
-        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(recipient) + Float.toString(value);
-        signature = StringUtil.getECDSASig(privateKey, data);
-    }
-
-    public boolean verifySignature(){
-        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(recipient) + Float.toString(value);
-        return StringUtil.verifyECDSASig(sender, data, signature);
     }
 }
